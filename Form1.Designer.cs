@@ -114,6 +114,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(243, 500);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 46);
@@ -224,7 +225,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(107, 36);
             this.label8.TabIndex = 18;
-            this.label8.Text = "GTV VI";
+            this.label8.Text = "GTA VI";
             // 
             // label9
             // 
@@ -261,6 +262,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(552, 500);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 46);
@@ -292,6 +294,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(859, 500);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 46);
@@ -337,7 +340,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "Form1";
             this.Text = "\'";
             this.Load += new System.EventHandler(this.Form1_Load);
