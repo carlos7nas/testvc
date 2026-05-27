@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>testvc</RootNamespace>
     <AssemblyName>testvc</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API_DOCUMENTATION.cs" />
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +56,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioFormHelper.cs" />
+    <Compile Include="UsuarioManager.cs" />
+    <Compile Include="USUARIO_USAGE_GUIDE.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +78,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,6 +95,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README_USUARIOS.md" />
     <None Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +106,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\maxresdefault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ALTERACAO_TELA_PRINCIPAL.txt" />
+    <Content Include="EXEMPLO_INTEGRACAO_FORM1.txt" />
+    <Content Include="GUIA_INICIO_RAPIDO.txt" />
+    <Content Include="IMPLEMENTACAO_CONCLUIDA.txt" />
+    <Content Include="RESUMO_FINAL.txt" />
+    <Content Include="SISTEMA_USUARIOS_SUMMARY.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

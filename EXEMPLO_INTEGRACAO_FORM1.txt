@@ -1,0 +1,345 @@
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO PRÁTICO - INTEGRAÇÃO DO SISTEMA DE USUÁRIOS EM FORM1
+═══════════════════════════════════════════════════════════════════════════════
+
+Este documento mostra um exemplo prático de como integrar o sistema de
+gerenciamento de usuários em seu Form1 principal.
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 1: CARREGAR USUÁRIOS EM INICIALIZAÇÃO
+═══════════════════════════════════════════════════════════════════════════════
+
+private void Form1_Load(object sender, EventArgs e)
+{
+	// Testar conexão ao carregar
+	if (!DatabaseHelper.TestConnection())
+	{
+		MessageBox.Show(
+			"Não foi possível conectar ao banco de dados.\n\n" +
+			"Verifique:\n" +
+			"• SQL Server está rodando?\n" +
+			"• Banco 'mobgames_store' existe?\n" +
+			"• Credenciais de autenticação estão corretas?",
+			"Erro de Conexão",
+			MessageBoxButtons.OK,
+			MessageBoxIcon.Error
+		);
+		return;
+	}
+
+	// Carregar usuários em grid
+	CarregarUsuarios();
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 2: BOTÃO PARA CRIAR NOVO USUÁRIO
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnNovoUsuario_Click(object sender, EventArgs e)
+{
+	try
+	{
+		if (UsuarioFormHelper.AbrirNovoUsuario())
+		{
+			MessageBox.Show("Usuário criado com sucesso!");
+			CarregarUsuarios(); // Atualizar lista
+		}
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 3: BOTÃO PARA EDITAR USUÁRIO SELECIONADO
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnEditarUsuario_Click(object sender, EventArgs e)
+{
+	if (dataGridView1.SelectedRows.Count == 0)
+	{
+		MessageBox.Show("Selecione um usuário para editar.", "Aviso");
+		return;
+	}
+
+	try
+	{
+		int usuarioId = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
+
+		if (UsuarioFormHelper.AbrirEditarUsuario(usuarioId))
+		{
+			MessageBox.Show("Usuário atualizado com sucesso!");
+			CarregarUsuarios();
+		}
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 4: BOTÃO PARA DELETAR USUÁRIO
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnDeletarUsuario_Click(object sender, EventArgs e)
+{
+	if (dataGridView1.SelectedRows.Count == 0)
+	{
+		MessageBox.Show("Selecione um usuário para deletar.", "Aviso");
+		return;
+	}
+
+	try
+	{
+		int usuarioId = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
+		string nomeUsuario = dataGridView1.SelectedRows[0].Cells["Nome"].Value.ToString();
+
+		if (UsuarioFormHelper.DeletarUsuario(usuarioId, nomeUsuario))
+		{
+			MessageBox.Show("Usuário deletado com sucesso!");
+			CarregarUsuarios();
+		}
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 5: CARREGAR USUÁRIOS EM DATAGRIDVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+private void CarregarUsuarios()
+{
+	try
+	{
+		UsuarioFormHelper.CarregarUsuariosEmGrid(dataGridView1);
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro ao carregar usuários: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 6: ACESSAR USUÁRIO ESPECÍFICO
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnObterUsuario_Click(object sender, EventArgs e)
+{
+	try
+	{
+		UsuarioManager.Usuario usuario = UsuarioManager.ObtenerUsuario(1);
+
+		if (usuario != null)
+		{
+			string info = string.Format(
+				"ID: {0}\n" +
+				"Nome: {1}\n" +
+				"Email: {2}\n" +
+				"Telefone: {3}\n" +
+				"CPF: {4}",
+				usuario.Id,
+				usuario.Nome,
+				usuario.Email,
+				usuario.Telefone,
+				usuario.CPF
+			);
+
+			MessageBox.Show(info, "Dados do Usuário");
+		}
+		else
+		{
+			MessageBox.Show("Usuário não encontrado.");
+		}
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 7: LISTAR TODOS OS USUÁRIOS
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnListarTodosUsuarios_Click(object sender, EventArgs e)
+{
+	try
+	{
+		var usuarios = UsuarioManager.ObtenerTodosUsuarios();
+
+		if (usuarios.Count == 0)
+		{
+			MessageBox.Show("Nenhum usuário cadastrado.");
+			return;
+		}
+
+		string lista = "Usuários Cadastrados:\n\n";
+		int contador = 1;
+
+		foreach (var usuario in usuarios)
+		{
+			lista += string.Format(
+				"{0}. {1} ({2})\n",
+				contador,
+				usuario.Nome,
+				usuario.Email
+			);
+			contador++;
+		}
+
+		MessageBox.Show(lista, "Lista de Usuários");
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 8: CRIAR USUÁRIO PROGRAMATICAMENTE
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnCriarUsuarioProgramaticamente_Click(object sender, EventArgs e)
+{
+	try
+	{
+		int novoId = UsuarioManager.SalvarUsuario(
+			nome: "João da Silva",
+			email: "joao.silva@email.com",
+			telefone: "(11) 98765-4321",
+			endereco: "Rua Principal, 123",
+			cpf: "123.456.789-00",
+			cidade: "São Paulo",
+			cep: "01000-000"
+		);
+
+		MessageBox.Show(
+			string.Format("Usuário criado com sucesso!\nID: {0}", novoId),
+			"Sucesso"
+		);
+
+		CarregarUsuarios();
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 9: ATUALIZAR USUÁRIO PROGRAMATICAMENTE
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnAtualizarUsuarioProgramaticamente_Click(object sender, EventArgs e)
+{
+	try
+	{
+		bool sucesso = UsuarioManager.AtualizarUsuario(
+			idUsuario: 1,
+			nome: "João da Silva Atualizado",
+			email: "joao.novo@email.com",
+			telefone: "(11) 99999-9999",
+			endereco: "Rua Nova, 456",
+			cpf: "123.456.789-00",
+			cidade: "Rio de Janeiro",
+			cep: "20000-000"
+		);
+
+		if (sucesso)
+		{
+			MessageBox.Show("Usuário atualizado com sucesso!");
+			CarregarUsuarios();
+		}
+		else
+		{
+			MessageBox.Show("Erro ao atualizar usuário.");
+		}
+	}
+	catch (Exception ex)
+	{
+		MessageBox.Show("Erro: " + ex.Message);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLO 10: TESTAR CONEXÃO COM BANCO DE DADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+private void btnTestarConexao_Click(object sender, EventArgs e)
+{
+	if (DatabaseHelper.TestConnection())
+	{
+		MessageBox.Show(
+			"Conexão com banco de dados estabelecida com sucesso!",
+			"Conexão OK"
+		);
+	}
+	else
+	{
+		MessageBox.Show(
+			"Falha ao conectar ao banco de dados.\n\n" +
+			"Verificar:\n" +
+			"1. SQL Server está rodando?\n" +
+			"2. Banco 'mobgames_store' existe?\n" +
+			"3. String de conexão está correta?",
+			"Erro de Conexão"
+		);
+	}
+}
+
+═══════════════════════════════════════════════════════════════════════════════
+ESTRUTURA DO DESIGNER DO FORM1 - COMPONENTES SUGERIDOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Para implementar os exemplos acima, adicione ao seu Form1:
+
+BOTÕES:
+  • btnNovoUsuario (text: "Novo Usuário")
+  • btnEditarUsuario (text: "Editar Usuário")
+  • btnDeletarUsuario (text: "Deletar Usuário")
+  • btnObterUsuario (text: "Obter Usuário")
+  • btnListarTodosUsuarios (text: "Listar Todos")
+  • btnCriarUsuarioProgramaticamente (text: "Criar Programaticamente")
+  • btnAtualizarUsuarioProgramaticamente (text: "Atualizar Programaticamente")
+  • btnTestarConexao (text: "Testar Conexão")
+
+DATAGRIDVIEW:
+  • dataGridView1 (para exibir lista de usuários)
+
+LAYOUT SUGERIDO:
+
+┌───────────────────────────────────────────────────────────────────┐
+│ ┌─ TOOLBAR ─────────────────────────────────────────────────────┐ │
+│ │ [Novo]  [Editar]  [Deletar]  [Teste]                          │ │
+│ │ [Obter]  [Listar]  [Criar]  [Atualizar]                       │ │
+│ └───────────────────────────────────────────────────────────────┘ │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│                   DataGridView - Lista de Usuários                │
+│                                                                   │
+│  ID │ Nome         │ Email              │ Telefone      │ CPF     │
+│  ───┼──────────────┼────────────────────┼───────────────┼────────│
+│   1 │ João Silva   │ joao@email.com     │ (11) 98765... │ 123.... │
+│   2 │ Ana Silva    │ ana@email.com      │ (11) 97654... │ 456.... │
+│   3 │ Carlos Santos│ carlos@email.com    │ (11) 96543... │ 789.... │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+PASSO A PASSO PARA IMPLEMENTAR
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Abra seu Form1 no Designer
+2. Adicione os botões em um painel ou toolbar
+3. Adicione um DataGridView
+4. Configure as colunas do DataGridView
+5. Duplo-clique em cada botão para criar os métodos
+6. Cole o código dos exemplos acima nos respectivos métodos
+7. Compile e teste
+
+═══════════════════════════════════════════════════════════════════════════════

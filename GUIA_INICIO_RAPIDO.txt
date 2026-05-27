@@ -1,0 +1,291 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║                GUIA DE INÍCIO RÁPIDO - SISTEMA DE USUÁRIOS                    ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+🚀 PASSO 1: PREPARAR O BANCO DE DADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Abra SQL Server Management Studio
+2. Clique em "New Query"
+3. Execute o seguinte script:
+
+────────────────────────────────────────────────────────────────────────────────
+USE master 
+GO 
+IF EXISTS (SELECT * FROM sysdatabases WHERE name = 'mobgames_store') 
+	DROP DATABASE mobgames_store 
+GO 
+CREATE DATABASE mobgames_store 
+GO 
+USE mobgames_store 
+GO 
+
+CREATE TABLE Usuario ( 
+	id_usuario INT IDENTITY(1,1) PRIMARY KEY, 
+	nome NVARCHAR(100) NOT NULL, 
+	email NVARCHAR(150) NOT NULL UNIQUE, 
+	senha_hash NVARCHAR(255) NOT NULL, 
+	data_criacao DATETIME DEFAULT GETDATE(), 
+	endereco NVARCHAR(150), 
+	bairro NVARCHAR(100), 
+	cidade NVARCHAR(100), 
+	cep NVARCHAR(10),
+	telefone NVARCHAR(15),
+	cpf NVARCHAR(20)
+)
+GO
+────────────────────────────────────────────────────────────────────────────────
+
+4. Clique em "Execute"
+5. Verifique se o banco foi criado com sucesso
+
+
+🔧 PASSO 2: VERIFICAR CONFIGURAÇÃO
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Abra o arquivo App.config
+2. Verifique a string de conexão:
+
+   <add name="DefaultConnection" 
+		connectionString="Server=.\SQLEXPRESS;Database=mobgames_store;..." />
+
+3. Se seu servidor SQL for diferente:
+   • Abra DatabaseHelper.cs
+   • Linha ~14: ConnectionString = "Server=SEU_SERVIDOR;Database=mobgames_store;..."
+   • Substitua SEU_SERVIDOR pelo seu servidor (ex: DESKTOP-ABC123)
+   • Salve o arquivo
+
+4. Compile o projeto (Ctrl+Shift+B)
+
+
+✅ PASSO 3: TESTAR CONEXÃO
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Compile o projeto (Build → Build Solution)
+2. Pressione F5 para executar
+3. Na interface de forma, você pode:
+   • Criar um novo usuário clicando em "Novo Usuário"
+   • O formulário UserForm abrirá
+   • Preencha os dados
+   • Clique "Salvar"
+
+4. Se houver erro de conexão:
+   • Verifique se SQL Server está rodando
+   • Verifique se o banco 'mobgames_store' foi criado
+   • Verifique a string de conexão
+
+
+📝 PASSO 4: USAR NO SEU FORM1
+═══════════════════════════════════════════════════════════════════════════════
+
+Para integrar o gerenciador de usuários em seu Form1:
+
+1. Adicione um botão "Novo Usuário"
+2. Duplo-clique nele
+3. Cole este código:
+
+────────────────────────────────────────────────────────────────────────────────
+private void btnNovoUsuario_Click(object sender, EventArgs e)
+{
+	if (UsuarioFormHelper.AbrirNovoUsuario())
+	{
+		MessageBox.Show("Usuário criado com sucesso!");
+	}
+}
+────────────────────────────────────────────────────────────────────────────────
+
+4. Repita para outros botões usando exemplos em EXEMPLO_INTEGRACAO_FORM1.txt
+
+
+🎯 OPERAÇÕES BÁSICAS
+═══════════════════════════════════════════════════════════════════════════════
+
+CRIAR NOVO USUÁRIO:
+  UsuarioFormHelper.AbrirNovoUsuario()
+
+EDITAR USUÁRIO EXISTENTE:
+  UsuarioFormHelper.AbrirEditarUsuario(usuarioId)
+
+LISTAR USUÁRIOS EM GRID:
+  UsuarioFormHelper.CarregarUsuariosEmGrid(dataGridView1)
+
+DELETAR USUÁRIO:
+  UsuarioFormHelper.DeletarUsuario(usuarioId, nomeUsuario)
+
+TESTAR CONEXÃO:
+  DatabaseHelper.TestConnection()
+
+
+📊 ESTRUTURA DO BANCO DE DADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Tabela: Usuario
+├─ id_usuario (INT) - Chave primária, auto-incremento
+├─ nome (NVARCHAR) - OBRIGATÓRIO
+├─ email (NVARCHAR) - OBRIGATÓRIO, ÚNICO
+├─ telefone (NVARCHAR) - Opcional
+├─ cpf (NVARCHAR) - Opcional
+├─ endereco (NVARCHAR) - Opcional
+├─ cidade (NVARCHAR) - Opcional
+├─ cep (NVARCHAR) - Opcional
+├─ bairro (NVARCHAR) - Opcional
+├─ senha_hash (NVARCHAR) - Hash SHA256
+└─ data_criacao (DATETIME) - Data de criação automática
+
+
+🎨 INTERFACE DO FORMULÁRIO
+═══════════════════════════════════════════════════════════════════════════════
+
+O UserForm possui:
+  • Campo de Nome
+  • Campo de Email (validado)
+  • Campo de Telefone
+  • Campo de Endereço
+  • Campo de CPF
+  • Campo de Data de Nascimento
+  • Seletor de Gênero
+  • Upload de Foto de Perfil
+  • Botão Salvar
+  • Botão Cancelar
+
+
+⚡ FUNCIONALIDADES
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Criar novo usuário
+✅ Editar usuário existente
+✅ Deletar usuário com confirmação
+✅ Upload de foto de perfil
+✅ Validação automática de dados
+✅ Detecção de email duplicado
+✅ Modo novo/edição automático
+✅ Carregamento em DataGridView
+✅ Proteção contra SQL Injection
+✅ Tratamento de erros
+
+
+❌ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA: "Erro de conexão com banco de dados"
+SOLUÇÃO:
+  1. Verifique se SQL Server está rodando
+	 • Windows: Services → SQL Server
+  2. Verifique se o banco existe
+	 • Management Studio → Object Explorer
+  3. Verifique a string de conexão em App.config
+  4. Verifique o nome do servidor:
+	 • cmd → sqlcmd -L (lista servidores)
+
+PROBLEMA: "Email já está registrado"
+SOLUÇÃO:
+  • Use outro email
+  • Ou delete o usuário anterior
+
+PROBLEMA: "Erro ao carregar foto"
+SOLUÇÃO:
+  • Formatos suportados: JPG, PNG, GIF, BMP
+  • Tente reescolher a imagem
+  • Verifique permissões de arquivo
+
+PROBLEMA: "Validação falhou"
+SOLUÇÃO:
+  • Preencha todos os campos obrigatórios (Nome e Email)
+  • Email deve ter o símbolo @
+  • Tente novamente
+
+
+📚 DOCUMENTAÇÃO COMPLETA
+═══════════════════════════════════════════════════════════════════════════════
+
+Leia os arquivos para documentação completa:
+
+  1. README_USUARIOS.md
+	 → Descrição detalhada de cada classe
+	 → Como usar cada método
+	 → Configuração
+
+  2. API_DOCUMENTATION.cs
+	 → Documentação formal
+	 → Assinaturas de métodos
+	 → Tipos de retorno
+
+  3. USUARIO_USAGE_GUIDE.cs
+	 → Exemplos práticos
+	 → Códigos prontos para usar
+
+  4. EXEMPLO_INTEGRACAO_FORM1.txt
+	 → Exemplos para integrar em Form1
+	 → Código copy-paste
+
+
+🔐 SEGURANÇA
+═══════════════════════════════════════════════════════════════════════════════
+
+O sistema implementa:
+  ✅ SqlParameters (Proteção SQL Injection)
+  ✅ Hash SHA256 para senhas
+  ✅ Validação de entrada
+  ✅ Tratamento seguro de exceções
+
+
+🎯 PRÓXIMOS PASSOS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. ✅ Criar banco de dados (já feito)
+2. ✅ Compilar projeto (já feito)
+3. → Testar criação de usuário
+4. → Integrar com Form1
+5. → Adicionar mais funcionalidades
+6. → Fazer deploy
+
+
+💡 DICAS ÚTEIS
+═══════════════════════════════════════════════════════════════════════════════
+
+• Use Ctrl+Shift+B para compilar rapidamente
+• F5 para executar e testar
+• Clique duplo no DataGridView para selecionar linhas
+• Abra SQL Management Studio para verificar dados inseridos
+• Use ferramentas de debug (F10, F11)
+
+
+🎓 ESTRUTURA DO PROJETO
+═══════════════════════════════════════════════════════════════════════════════
+
+testvc/
+├── DatabaseHelper.cs           [Acesso ao BD]
+├── UsuarioManager.cs           [Lógica de negócio]
+├── UsuarioFormHelper.cs        [Métodos helpers]
+├── UserForm.cs                 [UI - Lógica]
+├── UserForm.Designer.cs        [UI - Design]
+├── UserForm.resx               [UI - Recursos]
+├── Form1.cs                    [Seu formulário principal]
+├── App.config                  [Configurações]
+└── [Arquivos de documentação]
+
+
+✨ QUALIDADE
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Código limpo e bem organizado
+✅ Comentários explicativos
+✅ Tratamento de exceções
+✅ Validação de dados
+✅ Separação de responsabilidades
+✅ Documentação completa
+✅ Exemplos práticos
+✅ Compilação sem erros
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+				  Parabéns! Você está pronto para começar!
+
+		Se tiver dúvidas, consulte a documentação fornecida.
+			  Boa sorte com sua aplicação! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════
