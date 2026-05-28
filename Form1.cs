@@ -31,5 +31,26 @@ namespace testvc
         {
 
         }
+        private bool DeveMostrar(string conteudo, string texto)
+        {
+            return string.IsNullOrEmpty(texto) || conteudo.ToLower().Contains(texto);
+        }
+
+        private void Txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            string texto = txtpesquisa.Text.Trim().ToLower();
+
+            pbgtav.Visible = DeveMostrar("gtav simulacao tiro", texto);
+            lblgta.Visible = DeveMostrar("gtav simulacao tiro", texto);
+            btgta.Visible = DeveMostrar("gtav simulacao tiro", texto);
+
+            pbeafc.Visible = DeveMostrar("ea fc 26 esporte simulacao", texto);
+            lbleafc.Visible = DeveMostrar("ea fc 26 esporte simulacao", texto);
+            bteafc.Visible = DeveMostrar("ea fc 26 esporte simulacao", texto);
+
+            pbmine.Visible = DeveMostrar("minecraft aventura exploracao", texto);
+            lblmine.Visible = DeveMostrar("minecraft aventura exploracao", texto);
+            btmine.Visible = DeveMostrar("minecraft aventura exploracao", texto);
+        }
     }
 }
