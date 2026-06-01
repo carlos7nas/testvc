@@ -34,29 +34,26 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.pbmine = new System.Windows.Forms.PictureBox();
+            this.pbeafc = new System.Windows.Forms.PictureBox();
+            this.pbgtav = new System.Windows.Forms.PictureBox();
+            this.txtpesquisa = new System.Windows.Forms.TextBox();
+            this.lblgta = new System.Windows.Forms.Label();
+            this.lbleafc = new System.Windows.Forms.Label();
+            this.bteafc = new System.Windows.Forms.Button();
+            this.lblmine = new System.Windows.Forms.Label();
+            this.btmine = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.btgta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbmine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbeafc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbgtav)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -108,19 +105,8 @@
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(129, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 28);
+            this.label4.Size = new System.Drawing.Size(0, 28);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Pesquisar jogo...";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(243, 500);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 46);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Jogar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -175,132 +161,100 @@
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // pbmine
             // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(671, 260);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(281, 216);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
+            this.pbmine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbmine.BackgroundImage")));
+            this.pbmine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbmine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbmine.Location = new System.Drawing.Point(671, 260);
+            this.pbmine.Name = "pbmine";
+            this.pbmine.Size = new System.Drawing.Size(281, 216);
+            this.pbmine.TabIndex = 12;
+            this.pbmine.TabStop = false;
             // 
-            // pictureBox2
+            // pbeafc
             // 
-            this.pictureBox2.BackgroundImage = global::testvc.Properties.Resources.maxresdefault;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(364, 260);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(281, 216);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.pbeafc.BackgroundImage = global::testvc.Properties.Resources.maxresdefault;
+            this.pbeafc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbeafc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbeafc.Location = new System.Drawing.Point(364, 260);
+            this.pbeafc.Name = "pbeafc";
+            this.pbeafc.Size = new System.Drawing.Size(281, 216);
+            this.pbeafc.TabIndex = 7;
+            this.pbeafc.TabStop = false;
             // 
-            // pictureBox1
+            // pbgtav
             // 
-            this.pictureBox1.BackgroundImage = global::testvc.Properties.Resources.gtavi;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(55, 260);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 216);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pbgtav.BackgroundImage = global::testvc.Properties.Resources.gtavi;
+            this.pbgtav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbgtav.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbgtav.InitialImage = null;
+            this.pbgtav.Location = new System.Drawing.Point(55, 260);
+            this.pbgtav.Name = "pbgtav";
+            this.pbgtav.Size = new System.Drawing.Size(281, 216);
+            this.pbgtav.TabIndex = 5;
+            this.pbgtav.TabStop = false;
             // 
-            // textBox3
+            // txtpesquisa
             // 
-            this.textBox3.Location = new System.Drawing.Point(288, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(550, 35);
-            this.textBox3.TabIndex = 17;
+            this.txtpesquisa.Location = new System.Drawing.Point(129, 133);
+            this.txtpesquisa.Name = "txtpesquisa";
+            this.txtpesquisa.Size = new System.Drawing.Size(709, 35);
+            this.txtpesquisa.TabIndex = 17;
+            this.txtpesquisa.TextChanged += new System.EventHandler(this.Txtpesquisa_TextChanged);
             // 
-            // label8
+            // lblgta
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(49, 479);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 36);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "GTA VI";
+            this.lblgta.AutoSize = true;
+            this.lblgta.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgta.ForeColor = System.Drawing.Color.White;
+            this.lblgta.Location = new System.Drawing.Point(49, 479);
+            this.lblgta.Name = "lblgta";
+            this.lblgta.Size = new System.Drawing.Size(141, 52);
+            this.lblgta.TabIndex = 18;
+            this.lblgta.Text = "GTA VI\r\nSimulação, Tiro\r\n";
             // 
-            // label9
+            // lbleafc
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(50, 509);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 26);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Simulação, Tiro";
+            this.lbleafc.AutoSize = true;
+            this.lbleafc.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbleafc.ForeColor = System.Drawing.Color.White;
+            this.lbleafc.Location = new System.Drawing.Point(358, 479);
+            this.lbleafc.Name = "lbleafc";
+            this.lbleafc.Size = new System.Drawing.Size(169, 52);
+            this.lbleafc.TabIndex = 21;
+            this.lbleafc.Text = "EA FC 26\r\nEsporte, Simulação\r\n";
             // 
-            // label10
+            // bteafc
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(359, 509);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(169, 26);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Esporte, Simulação";
+            this.bteafc.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bteafc.Location = new System.Drawing.Point(552, 500);
+            this.bteafc.Name = "bteafc";
+            this.bteafc.Size = new System.Drawing.Size(93, 46);
+            this.bteafc.TabIndex = 20;
+            this.bteafc.Text = "Jogar";
+            this.bteafc.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // lblmine
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(358, 479);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(128, 36);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "EA FC 26";
+            this.lblmine.AutoSize = true;
+            this.lblmine.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmine.ForeColor = System.Drawing.Color.White;
+            this.lblmine.Location = new System.Drawing.Point(665, 479);
+            this.lblmine.Name = "lblmine";
+            this.lblmine.Size = new System.Drawing.Size(191, 52);
+            this.lblmine.TabIndex = 24;
+            this.lblmine.Text = "MINECRAFT\r\nAventura, Exploração";
             // 
-            // button2
+            // btmine
             // 
-            this.button2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(552, 500);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 46);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Jogar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(666, 509);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(191, 26);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Aventura, Exploração";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(665, 479);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(176, 36);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "MINECRAFT";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(859, 500);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 46);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Jogar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btmine.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btmine.Location = new System.Drawing.Point(859, 500);
+            this.btmine.Name = "btmine";
+            this.btmine.Size = new System.Drawing.Size(93, 46);
+            this.btmine.TabIndex = 23;
+            this.btmine.Text = "Jogar";
+            this.btmine.UseVisualStyleBackColor = true;
             // 
             // vScrollBar1
             // 
@@ -309,6 +263,16 @@
             this.vScrollBar1.Size = new System.Drawing.Size(16, 595);
             this.vScrollBar1.TabIndex = 26;
             // 
+            // btgta
+            // 
+            this.btgta.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btgta.Location = new System.Drawing.Point(243, 500);
+            this.btgta.Name = "btgta";
+            this.btgta.Size = new System.Drawing.Size(93, 46);
+            this.btgta.TabIndex = 9;
+            this.btgta.Text = "Jogar";
+            this.btgta.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -316,24 +280,21 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1006, 695);
             this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.lblmine);
+            this.Controls.Add(this.btmine);
+            this.Controls.Add(this.lbleafc);
+            this.Controls.Add(this.bteafc);
+            this.Controls.Add(this.lblgta);
+            this.Controls.Add(this.txtpesquisa);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbmine);
+            this.Controls.Add(this.btgta);
+            this.Controls.Add(this.pbeafc);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbgtav);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -345,9 +306,9 @@
             this.Text = "\'";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbmine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbeafc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbgtav)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,25 +321,22 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pbeafc;
+        private System.Windows.Forms.PictureBox pbgtav;
+        private System.Windows.Forms.PictureBox pbmine;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtpesquisa;
+        private System.Windows.Forms.Label lblgta;
+        private System.Windows.Forms.Label lbleafc;
+        private System.Windows.Forms.Button bteafc;
+        private System.Windows.Forms.Label lblmine;
+        private System.Windows.Forms.Button btmine;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Button btgta;
     }
 }
 
