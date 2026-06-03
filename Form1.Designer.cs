@@ -51,7 +51,6 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.btgta = new System.Windows.Forms.Button();
             this.buttonNewUser = new System.Windows.Forms.Button();
-            this.buttonLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbmine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbeafc)).BeginInit();
@@ -78,7 +77,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(330, 36);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Escolha um jogo para jogar";
+            this.label2.Text = "Escolha um jogo para comprar";
             this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // textBox1
@@ -150,7 +149,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(215, 44);
             this.label5.TabIndex = 6;
-            this.label5.Text = "｜Meus jogos";
+            this.label5.Text = "｜Loja de jogos";
             // 
             // pictureBox4
             // 
@@ -232,10 +231,11 @@
             this.bteafc.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bteafc.Location = new System.Drawing.Point(552, 500);
             this.bteafc.Name = "bteafc";
-            this.bteafc.Size = new System.Drawing.Size(93, 46);
+            this.bteafc.Size = new System.Drawing.Size(122, 46);
             this.bteafc.TabIndex = 20;
-            this.bteafc.Text = "Jogar";
+            this.bteafc.Text = "Comprar";
             this.bteafc.UseVisualStyleBackColor = true;
+            this.bteafc.Click += new System.EventHandler(this.Bteafc_Click);
             // 
             // lblmine
             // 
@@ -251,12 +251,13 @@
             // btmine
             // 
             this.btmine.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmine.Location = new System.Drawing.Point(859, 500);
+            this.btmine.Location = new System.Drawing.Point(830, 500);
             this.btmine.Name = "btmine";
-            this.btmine.Size = new System.Drawing.Size(93, 46);
+            this.btmine.Size = new System.Drawing.Size(122, 46);
             this.btmine.TabIndex = 23;
-            this.btmine.Text = "Jogar";
+            this.btmine.Text = "Comprar";
             this.btmine.UseVisualStyleBackColor = true;
+            this.btmine.Click += new System.EventHandler(this.Btmine_Click);
             // 
             // vScrollBar1
             // 
@@ -268,12 +269,13 @@
             // btgta
             // 
             this.btgta.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btgta.Location = new System.Drawing.Point(243, 500);
+            this.btgta.Location = new System.Drawing.Point(214, 500);
             this.btgta.Name = "btgta";
-            this.btgta.Size = new System.Drawing.Size(93, 46);
+            this.btgta.Size = new System.Drawing.Size(122, 46);
             this.btgta.TabIndex = 9;
-            this.btgta.Text = "Jogar";
+            this.btgta.Text = "Comprar";
             this.btgta.UseVisualStyleBackColor = true;
+            this.btgta.Click += new System.EventHandler(this.Btgta_Click);
             // 
             // buttonNewUser
             // 
@@ -284,22 +286,9 @@
             this.buttonNewUser.Name = "buttonNewUser";
             this.buttonNewUser.Size = new System.Drawing.Size(150, 45);
             this.buttonNewUser.TabIndex = 27;
-            this.buttonNewUser.Text = "Novo Usuário";
+            this.buttonNewUser.Text = "Meu Perfil";
             this.buttonNewUser.UseVisualStyleBackColor = false;
             this.buttonNewUser.Click += new System.EventHandler(this.ButtonNewUser_Click);
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.buttonLogin.Font = new System.Drawing.Font("Palatino Linotype", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(650, 645);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(150, 45);
-            this.buttonLogin.TabIndex = 28;
-            this.buttonLogin.Text = "Entrar";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // Form1
             // 
@@ -307,7 +296,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1006, 695);
-            this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonNewUser);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.lblmine);
@@ -368,7 +356,6 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button btgta;
         private System.Windows.Forms.Button buttonNewUser;
-        private System.Windows.Forms.Button buttonLogin;
     }
 }
 

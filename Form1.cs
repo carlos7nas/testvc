@@ -97,24 +97,38 @@ namespace testvc
 
         private void ButtonNewUser_Click(object sender, EventArgs e)
         {
-            // Abrir formulário para criar novo usuário
-            UserForm userForm = new UserForm();
+            if (SessionContext.CurrentUserId <= 0)
+            {
+                MessageBox.Show("Nenhum usuario logado.", "Perfil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            UserForm userForm = new UserForm(SessionContext.CurrentUserId);
             if (userForm.ShowDialog() == DialogResult.OK)
             {
-                // Após criar usuário, recarregar dados
                 LoadUserData();
             }
         }
 
-        private void ButtonLogin_Click(object sender, EventArgs e)
+        private void AbrirCompra(string nomeJogo, string categorias, string preco, Image imagemJogo)
         {
-            // Abrir formulário de login para selecionar usuário existente
-            LoginForm loginForm = new LoginForm();
-            if (loginForm.ShowDialog() == DialogResult.OK)
-            {
-                // Após selecionar usuário, recarregar dados
-                LoadUserData();
-            }
+            CompraForm compraForm = new CompraForm(nomeJogo, categorias, preco, imagemJogo);
+            compraForm.ShowDialog();
+        }
+
+        private void Btgta_Click(object sender, EventArgs e)
+        {
+            AbrirCompra("GTA VI", "Simulacao, Tiro", "R$ 349,90", pbgtav.BackgroundImage);
+        }
+
+        private void Bteafc_Click(object sender, EventArgs e)
+        {
+            AbrirCompra("EA FC 26", "Esporte, Simulacao", "R$ 299,90", pbeafc.BackgroundImage);
+        }
+
+        private void Btmine_Click(object sender, EventArgs e)
+        {
+            AbrirCompra("MINECRAFT", "Aventura, Exploracao", "R$ 99,90", pbmine.BackgroundImage);
         }
     }
 }

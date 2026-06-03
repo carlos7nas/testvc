@@ -23,6 +23,11 @@ namespace testvc
             this.isMainForm = true;  // Modo tela principal
         }
 
+        public UserForm(bool abrirComoTelaPrincipal) : this()
+        {
+            this.isMainForm = abrirComoTelaPrincipal;
+        }
+
         public UserForm(int usuarioId) : this()
         {
             this.usuarioId = usuarioId;
