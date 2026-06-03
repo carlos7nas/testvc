@@ -48,6 +48,7 @@ namespace testvc
             this.buttonUploadPhoto = new System.Windows.Forms.Button();
             this.labelPhotoStatus = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
@@ -262,12 +263,25 @@ namespace testvc
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
+            // buttonCreate
+            // 
+            this.buttonCreate.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonCreate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreate.ForeColor = System.Drawing.Color.White;
+            this.buttonCreate.Location = new System.Drawing.Point(200, 590);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(170, 45);
+            this.buttonCreate.TabIndex = 21;
+            this.buttonCreate.Text = "Criar Usuário";
+            this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.ButtonCreate_Click);
+            // 
             // buttonCancel
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.DarkSlateGray;
             this.buttonCancel.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(200, 590);
+            this.buttonCancel.Location = new System.Drawing.Point(390, 590);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(150, 45);
             this.buttonCancel.TabIndex = 20;
@@ -282,6 +296,7 @@ namespace testvc
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(750, 650);
             this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelPhotoStatus);
             this.Controls.Add(this.buttonUploadPhoto);
@@ -335,6 +350,7 @@ namespace testvc
         private System.Windows.Forms.Button buttonUploadPhoto;
         private System.Windows.Forms.Label labelPhotoStatus;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonCancel;
     }
 }

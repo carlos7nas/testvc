@@ -50,6 +50,8 @@
             this.btmine = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.btgta = new System.Windows.Forms.Button();
+            this.buttonNewUser = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbmine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbeafc)).BeginInit();
@@ -90,10 +92,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Old English Text MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(89, 138);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 26);
+            this.label3.Size = new System.Drawing.Size(34, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "🔎";
             this.label3.Click += new System.EventHandler(this.Label3_Click);
@@ -122,7 +124,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(75, 642);
+            this.label6.Location = new System.Drawing.Point(65, 642);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 28);
             this.label6.TabIndex = 15;
@@ -133,7 +135,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label7.Location = new System.Drawing.Point(76, 670);
+            this.label7.Location = new System.Drawing.Point(66, 670);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 20);
             this.label7.TabIndex = 16;
@@ -146,7 +148,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(31, 199);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(216, 44);
+            this.label5.Size = new System.Drawing.Size(215, 44);
             this.label5.TabIndex = 6;
             this.label5.Text = "｜Meus jogos";
             // 
@@ -155,7 +157,7 @@
             this.pictureBox4.BackgroundImage = global::testvc.Properties.Resources.icon1;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 645);
+            this.pictureBox4.Location = new System.Drawing.Point(2, 645);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(58, 47);
             this.pictureBox4.TabIndex = 14;
@@ -273,12 +275,40 @@
             this.btgta.Text = "Jogar";
             this.btgta.UseVisualStyleBackColor = true;
             // 
+            // buttonNewUser
+            // 
+            this.buttonNewUser.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonNewUser.Font = new System.Drawing.Font("Palatino Linotype", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewUser.ForeColor = System.Drawing.Color.White;
+            this.buttonNewUser.Location = new System.Drawing.Point(820, 645);
+            this.buttonNewUser.Name = "buttonNewUser";
+            this.buttonNewUser.Size = new System.Drawing.Size(150, 45);
+            this.buttonNewUser.TabIndex = 27;
+            this.buttonNewUser.Text = "Novo Usuário";
+            this.buttonNewUser.UseVisualStyleBackColor = false;
+            this.buttonNewUser.Click += new System.EventHandler(this.ButtonNewUser_Click);
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonLogin.Font = new System.Drawing.Font("Palatino Linotype", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(650, 645);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(150, 45);
+            this.buttonLogin.TabIndex = 28;
+            this.buttonLogin.Text = "Entrar";
+            this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1006, 695);
+            this.Controls.Add(this.buttonLogin);
+            this.Controls.Add(this.buttonNewUser);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.lblmine);
             this.Controls.Add(this.btmine);
@@ -337,6 +367,8 @@
         private System.Windows.Forms.Button btmine;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button btgta;
+        private System.Windows.Forms.Button buttonNewUser;
+        private System.Windows.Forms.Button buttonLogin;
     }
 }
 

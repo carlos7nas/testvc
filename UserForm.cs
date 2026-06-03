@@ -194,6 +194,11 @@ namespace testvc
                     int novoId = UsuarioManager.SalvarUsuario(nome, email, telefone, endereco, cpf, "", "");
                     if (novoId > 0)
                     {
+                        // Atualizar contexto da sessão com o novo usuário
+                        SessionContext.CurrentUserId = novoId;
+                        SessionContext.CurrentUserName = nome;
+                        SessionContext.CurrentUserImagePath = selectedImagePath;
+
                         MessageBox.Show($"Usuário salvo com sucesso! (ID: {novoId})", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -222,6 +227,15 @@ namespace testvc
                 // Em modo modal, apenas fechar
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
+            }
+        }
+
+        private void ButtonCreate_Click(object sender, EventArgs e)
+        {
+            // Validar campos antes de criar usuário
+            if (ValidateFields())
+            {
+                SaveUserData();
             }
         }
 

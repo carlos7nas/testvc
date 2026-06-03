@@ -54,8 +54,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionContext.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ALTERACAO_TELA_PRINCIPAL.txt" />
+    <Content Include="criar_banco_dados.sql" />
     <Content Include="EXEMPLO_INTEGRACAO_FORM1.txt" />
     <Content Include="GUIA_INICIO_RAPIDO.txt" />
     <Content Include="IMPLEMENTACAO_CONCLUIDA.txt" />
