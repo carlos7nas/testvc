@@ -29,8 +29,11 @@ namespace testvc
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            JogoManager.GarantirJogosCadastrados();
+
             // Carregar dados do usuário ao abrir o formulário
             LoadUserData();
+            AtualizarBotoesJogos();
         }
 
         private void LoadUserData()
@@ -113,22 +116,75 @@ namespace testvc
         private void AbrirCompra(string nomeJogo, string categorias, string preco, Image imagemJogo)
         {
             CompraForm compraForm = new CompraForm(nomeJogo, categorias, preco, imagemJogo);
-            compraForm.ShowDialog();
+            if (compraForm.ShowDialog() == DialogResult.OK)
+            {
+                AtualizarBotoesJogos();
+            }
         }
 
         private void Btgta_Click(object sender, EventArgs e)
         {
+            if (JogarSeUsuarioPossuiJogo("GTA VI"))
+            {
+                return;
+            }
+
             AbrirCompra("GTA VI", "Simulacao, Tiro", "R$ 349,90", pbgtav.BackgroundImage);
         }
 
         private void Bteafc_Click(object sender, EventArgs e)
         {
+            if (JogarSeUsuarioPossuiJogo("EA FC 26"))
+            {
+                return;
+            }
+
             AbrirCompra("EA FC 26", "Esporte, Simulacao", "R$ 299,90", pbeafc.BackgroundImage);
         }
 
         private void Btmine_Click(object sender, EventArgs e)
         {
+            if (JogarSeUsuarioPossuiJogo("MINECRAFT"))
+            {
+                return;
+            }
+
             AbrirCompra("MINECRAFT", "Aventura, Exploracao", "R$ 99,90", pbmine.BackgroundImage);
+        }
+
+        private void AtualizarBotoesJogos()
+        {
+            if (SessionContext.CurrentUserId <= 0)
+            {
+                btgta.Text = "Comprar";
+                bteafc.Text = "Comprar";
+                btmine.Text = "Comprar";
+                return;
+            }
+
+            btgta.Text = CompraManager.UsuarioPossuiJogo(SessionContext.CurrentUserId, "GTA VI") ? "Jogar" : "Comprar";
+            bteafc.Text = CompraManager.UsuarioPossuiJogo(SessionContext.CurrentUserId, "EA FC 26") ? "Jogar" : "Comprar";
+            btmine.Text = CompraManager.UsuarioPossuiJogo(SessionContext.CurrentUserId, "MINECRAFT") ? "Jogar" : "Comprar";
+        }
+
+        private bool JogarSeUsuarioPossuiJogo(string nomeJogo)
+        {
+            if (SessionContext.CurrentUserId <= 0)
+            {
+                return false;
+            }
+
+            if (!CompraManager.UsuarioPossuiJogo(SessionContext.CurrentUserId, nomeJogo))
+            {
+                return false;
+            }
+
+            MessageBox.Show(
+                "Iniciando " + nomeJogo + "...",
+                "Jogar",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            return true;
         }
     }
 }

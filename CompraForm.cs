@@ -32,6 +32,18 @@ namespace testvc
 
         private void ButtonComprar_Click(object sender, EventArgs e)
         {
+            if (SessionContext.CurrentUserId <= 0)
+            {
+                MessageBox.Show(
+                    "Faca login antes de comprar um jogo.",
+                    "Compra",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            CompraManager.RegistrarCompra(SessionContext.CurrentUserId, nomeJogo);
+
             MessageBox.Show(
                 "Compra de " + nomeJogo + " realizada com sucesso!",
                 "Compra finalizada",

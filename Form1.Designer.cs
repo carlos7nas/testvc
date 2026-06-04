@@ -169,7 +169,7 @@
             this.pbmine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbmine.Location = new System.Drawing.Point(671, 260);
             this.pbmine.Name = "pbmine";
-            this.pbmine.Size = new System.Drawing.Size(281, 216);
+            this.pbmine.Size = new System.Drawing.Size(230, 150);
             this.pbmine.TabIndex = 12;
             this.pbmine.TabStop = false;
             // 
@@ -180,7 +180,7 @@
             this.pbeafc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbeafc.Location = new System.Drawing.Point(364, 260);
             this.pbeafc.Name = "pbeafc";
-            this.pbeafc.Size = new System.Drawing.Size(281, 216);
+            this.pbeafc.Size = new System.Drawing.Size(230, 150);
             this.pbeafc.TabIndex = 7;
             this.pbeafc.TabStop = false;
             // 
@@ -192,7 +192,7 @@
             this.pbgtav.InitialImage = null;
             this.pbgtav.Location = new System.Drawing.Point(55, 260);
             this.pbgtav.Name = "pbgtav";
-            this.pbgtav.Size = new System.Drawing.Size(281, 216);
+            this.pbgtav.Size = new System.Drawing.Size(230, 150);
             this.pbgtav.TabIndex = 5;
             this.pbgtav.TabStop = false;
             // 
@@ -209,7 +209,7 @@
             this.lblgta.AutoSize = true;
             this.lblgta.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblgta.ForeColor = System.Drawing.Color.White;
-            this.lblgta.Location = new System.Drawing.Point(49, 479);
+            this.lblgta.Location = new System.Drawing.Point(49, 418);
             this.lblgta.Name = "lblgta";
             this.lblgta.Size = new System.Drawing.Size(141, 52);
             this.lblgta.TabIndex = 18;
@@ -220,7 +220,7 @@
             this.lbleafc.AutoSize = true;
             this.lbleafc.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbleafc.ForeColor = System.Drawing.Color.White;
-            this.lbleafc.Location = new System.Drawing.Point(358, 479);
+            this.lbleafc.Location = new System.Drawing.Point(358, 418);
             this.lbleafc.Name = "lbleafc";
             this.lbleafc.Size = new System.Drawing.Size(169, 52);
             this.lbleafc.TabIndex = 21;
@@ -229,7 +229,7 @@
             // bteafc
             // 
             this.bteafc.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bteafc.Location = new System.Drawing.Point(552, 500);
+            this.bteafc.Location = new System.Drawing.Point(418, 480);
             this.bteafc.Name = "bteafc";
             this.bteafc.Size = new System.Drawing.Size(122, 46);
             this.bteafc.TabIndex = 20;
@@ -242,7 +242,7 @@
             this.lblmine.AutoSize = true;
             this.lblmine.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmine.ForeColor = System.Drawing.Color.White;
-            this.lblmine.Location = new System.Drawing.Point(665, 479);
+            this.lblmine.Location = new System.Drawing.Point(665, 418);
             this.lblmine.Name = "lblmine";
             this.lblmine.Size = new System.Drawing.Size(191, 52);
             this.lblmine.TabIndex = 24;
@@ -251,7 +251,7 @@
             // btmine
             // 
             this.btmine.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmine.Location = new System.Drawing.Point(830, 500);
+            this.btmine.Location = new System.Drawing.Point(725, 480);
             this.btmine.Name = "btmine";
             this.btmine.Size = new System.Drawing.Size(122, 46);
             this.btmine.TabIndex = 23;
@@ -269,7 +269,7 @@
             // btgta
             // 
             this.btgta.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btgta.Location = new System.Drawing.Point(214, 500);
+            this.btgta.Location = new System.Drawing.Point(109, 480);
             this.btgta.Name = "btgta";
             this.btgta.Size = new System.Drawing.Size(122, 46);
             this.btgta.TabIndex = 9;
