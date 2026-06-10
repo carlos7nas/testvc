@@ -21,7 +21,8 @@ CREATE TABLE Usuario (
 	cidade NVARCHAR(100), 
 	cep NVARCHAR(10),
 	telefone NVARCHAR(15),
-	cpf NVARCHAR(20)
+	cpf NVARCHAR(20),
+	is_admin BIT NOT NULL DEFAULT 0
 )
 GO 
 
@@ -49,6 +50,10 @@ INSERT INTO Usuario (nome, email, senha_hash, endereco, bairro, cidade, cep, tel
 ('Lucas Borges', 'lucas@email.com', 'hash123', 'Rua A', 'Centro', 'São Paulo', '01000-000', '(11) 98765-4321', '123.456.789-00'), 
 ('Ana Silva', 'ana@email.com', 'hash456', 'Rua B', 'Jardins', 'São Paulo', '02000-000', '(11) 97654-3210', '987.654.321-00'),
 ('Carlos Santos', 'carlos@email.com', 'hash789', 'Rua C', 'Vila Mariana', 'São Paulo', '03000-000', '(11) 96543-2109', '456.789.123-00')
+GO
+
+INSERT INTO Usuario (nome, email, senha_hash, endereco, bairro, cidade, cep, telefone, cpf, is_admin) VALUES
+('Admin', 'admin@mobgames.com', 'hash_admin', '', '', '', '', '', '000.000.000-00', 1)
 GO
 
 INSERT INTO Jogo (nome, categoria, preco) VALUES

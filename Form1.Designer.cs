@@ -1,16 +1,16 @@
-﻿namespace testvc
+namespace testvc
 {
     partial class Form1
     {
         /// <summary>
-        /// Variável de designer necessária.
+        /// Variavel de designer necessaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpar os recursos que estão sendo usados.
+        /// Limpar os recursos que estao sendo usados.
         /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        /// <param name="disposing">true se for necessario descartar os recursos gerenciados; caso contrario, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,41 +20,35 @@
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Windows Form Designer
+        #region Codigo gerado pelo Windows Form Designer
 
         /// <summary>
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
+        /// Metodo necessario para suporte ao Designer.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonAdicionarJogo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pbmine = new System.Windows.Forms.PictureBox();
-            this.pbeafc = new System.Windows.Forms.PictureBox();
-            this.pbgtav = new System.Windows.Forms.PictureBox();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
-            this.lblgta = new System.Windows.Forms.Label();
-            this.lbleafc = new System.Windows.Forms.Label();
-            this.bteafc = new System.Windows.Forms.Button();
-            this.lblmine = new System.Windows.Forms.Label();
-            this.btmine = new System.Windows.Forms.Button();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.btgta = new System.Windows.Forms.Button();
+            this.filterPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonFiltroTodos = new System.Windows.Forms.Button();
+            this.buttonFiltroMedia = new System.Windows.Forms.Button();
+            this.buttonFiltroMediana = new System.Windows.Forms.Button();
+            this.buttonFiltroModa = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelJogos = new System.Windows.Forms.FlowLayoutPanel();
+            this.footerPanel = new System.Windows.Forms.Panel();
             this.buttonNewUser = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.searchPanel.SuspendLayout();
+            this.filterPanel.SuspendLayout();
+            this.footerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbmine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbeafc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbgtav)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +62,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Jogos";
             // 
+            // buttonAdicionarJogo
+            // 
+            this.buttonAdicionarJogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdicionarJogo.BackColor = System.Drawing.Color.White;
+            this.buttonAdicionarJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdicionarJogo.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAdicionarJogo.Location = new System.Drawing.Point(909, 25);
+            this.buttonAdicionarJogo.Name = "buttonAdicionarJogo";
+            this.buttonAdicionarJogo.Size = new System.Drawing.Size(46, 42);
+            this.buttonAdicionarJogo.TabIndex = 21;
+            this.buttonAdicionarJogo.Text = "+";
+            this.buttonAdicionarJogo.UseVisualStyleBackColor = false;
+            this.buttonAdicionarJogo.Visible = false;
+            this.buttonAdicionarJogo.Click += new System.EventHandler(this.ButtonAdicionarJogo_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -78,217 +87,186 @@
             this.label2.Size = new System.Drawing.Size(330, 36);
             this.label2.TabIndex = 1;
             this.label2.Text = "Escolha um jogo para comprar";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
-            // textBox1
+            // searchPanel
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(758, 35);
-            this.textBox1.TabIndex = 2;
+            this.searchPanel.BackColor = System.Drawing.Color.White;
+            this.searchPanel.Controls.Add(this.label3);
+            this.searchPanel.Controls.Add(this.txtpesquisa);
+            this.searchPanel.Location = new System.Drawing.Point(39, 130);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Size = new System.Drawing.Size(799, 43);
+            this.searchPanel.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(89, 138);
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label3.Location = new System.Drawing.Point(12, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 25);
+            this.label3.Size = new System.Drawing.Size(24, 25);
             this.label3.TabIndex = 3;
-            this.label3.Text = "🔎";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
+            this.label3.Text = "?";
             // 
-            // label4
+            // txtpesquisa
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(129, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 28);
-            this.label4.TabIndex = 4;
+            this.txtpesquisa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtpesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpesquisa.Location = new System.Drawing.Point(48, 10);
+            this.txtpesquisa.Name = "txtpesquisa";
+            this.txtpesquisa.Size = new System.Drawing.Size(735, 22);
+            this.txtpesquisa.TabIndex = 17;
+            this.txtpesquisa.TextChanged += new System.EventHandler(this.Txtpesquisa_TextChanged);
             // 
-            // textBox2
+            // filterPanel
             // 
-            this.textBox2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(-8, 636);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(1016, 80);
-            this.textBox2.TabIndex = 13;
+            this.filterPanel.Controls.Add(this.buttonFiltroTodos);
+            this.filterPanel.Controls.Add(this.buttonFiltroMedia);
+            this.filterPanel.Controls.Add(this.buttonFiltroMediana);
+            this.filterPanel.Controls.Add(this.buttonFiltroModa);
+            this.filterPanel.Location = new System.Drawing.Point(39, 183);
+            this.filterPanel.Name = "filterPanel";
+            this.filterPanel.Size = new System.Drawing.Size(799, 42);
+            this.filterPanel.TabIndex = 20;
             // 
-            // label6
+            // buttonFiltroTodos
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(65, 642);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 28);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "HighspeedIV";
+            this.buttonFiltroTodos.BackColor = System.Drawing.Color.White;
+            this.buttonFiltroTodos.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFiltroTodos.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonFiltroTodos.Location = new System.Drawing.Point(3, 3);
+            this.buttonFiltroTodos.Name = "buttonFiltroTodos";
+            this.buttonFiltroTodos.Size = new System.Drawing.Size(100, 34);
+            this.buttonFiltroTodos.TabIndex = 0;
+            this.buttonFiltroTodos.Text = "Todos";
+            this.buttonFiltroTodos.UseVisualStyleBackColor = false;
+            this.buttonFiltroTodos.Click += new System.EventHandler(this.ButtonFiltroTodos_Click);
             // 
-            // label7
+            // buttonFiltroMedia
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label7.Location = new System.Drawing.Point(66, 670);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 20);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "• Online";
+            this.buttonFiltroMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.buttonFiltroMedia.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFiltroMedia.ForeColor = System.Drawing.Color.White;
+            this.buttonFiltroMedia.Location = new System.Drawing.Point(109, 3);
+            this.buttonFiltroMedia.Name = "buttonFiltroMedia";
+            this.buttonFiltroMedia.Size = new System.Drawing.Size(100, 34);
+            this.buttonFiltroMedia.TabIndex = 1;
+            this.buttonFiltroMedia.Text = "Media";
+            this.buttonFiltroMedia.UseVisualStyleBackColor = false;
+            this.buttonFiltroMedia.Click += new System.EventHandler(this.ButtonFiltroMedia_Click);
+            // 
+            // buttonFiltroMediana
+            // 
+            this.buttonFiltroMediana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.buttonFiltroMediana.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFiltroMediana.ForeColor = System.Drawing.Color.White;
+            this.buttonFiltroMediana.Location = new System.Drawing.Point(215, 3);
+            this.buttonFiltroMediana.Name = "buttonFiltroMediana";
+            this.buttonFiltroMediana.Size = new System.Drawing.Size(100, 34);
+            this.buttonFiltroMediana.TabIndex = 2;
+            this.buttonFiltroMediana.Text = "Mediana";
+            this.buttonFiltroMediana.UseVisualStyleBackColor = false;
+            this.buttonFiltroMediana.Click += new System.EventHandler(this.ButtonFiltroMediana_Click);
+            // 
+            // buttonFiltroModa
+            // 
+            this.buttonFiltroModa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.buttonFiltroModa.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFiltroModa.ForeColor = System.Drawing.Color.White;
+            this.buttonFiltroModa.Location = new System.Drawing.Point(321, 3);
+            this.buttonFiltroModa.Name = "buttonFiltroModa";
+            this.buttonFiltroModa.Size = new System.Drawing.Size(100, 34);
+            this.buttonFiltroModa.TabIndex = 3;
+            this.buttonFiltroModa.Text = "Moda";
+            this.buttonFiltroModa.UseVisualStyleBackColor = false;
+            this.buttonFiltroModa.Click += new System.EventHandler(this.ButtonFiltroModa_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(31, 199);
+            this.label5.Location = new System.Drawing.Point(31, 231);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 44);
+            this.label5.Size = new System.Drawing.Size(210, 44);
             this.label5.TabIndex = 6;
-            this.label5.Text = "｜Loja de jogos";
+            this.label5.Text = "| Loja de jogos";
+            // 
+            // panelJogos
+            // 
+            this.panelJogos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelJogos.AutoScroll = true;
+            this.panelJogos.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panelJogos.Location = new System.Drawing.Point(39, 285);
+            this.panelJogos.Name = "panelJogos";
+            this.panelJogos.Padding = new System.Windows.Forms.Padding(0, 0, 12, 16);
+            this.panelJogos.Size = new System.Drawing.Size(929, 326);
+            this.panelJogos.TabIndex = 18;
+            // 
+            // footerPanel
+            // 
+            this.footerPanel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.footerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.footerPanel.Controls.Add(this.buttonNewUser);
+            this.footerPanel.Controls.Add(this.label7);
+            this.footerPanel.Controls.Add(this.label6);
+            this.footerPanel.Controls.Add(this.pictureBox4);
+            this.footerPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.footerPanel.Location = new System.Drawing.Point(0, 631);
+            this.footerPanel.Name = "footerPanel";
+            this.footerPanel.Size = new System.Drawing.Size(1006, 64);
+            this.footerPanel.TabIndex = 19;
+            // 
+            // buttonNewUser
+            // 
+            this.buttonNewUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNewUser.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonNewUser.Font = new System.Drawing.Font("Palatino Linotype", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewUser.ForeColor = System.Drawing.Color.White;
+            this.buttonNewUser.Location = new System.Drawing.Point(819, 10);
+            this.buttonNewUser.Name = "buttonNewUser";
+            this.buttonNewUser.Size = new System.Drawing.Size(150, 42);
+            this.buttonNewUser.TabIndex = 27;
+            this.buttonNewUser.Text = "Meu Perfil";
+            this.buttonNewUser.UseVisualStyleBackColor = false;
+            this.buttonNewUser.Click += new System.EventHandler(this.ButtonNewUser_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label7.Location = new System.Drawing.Point(74, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "• Online";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(73, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 28);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "HighspeedIV";
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = global::testvc.Properties.Resources.icon1;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(2, 645);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 8);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(58, 47);
+            this.pictureBox4.Size = new System.Drawing.Size(50, 45);
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
-            // 
-            // pbmine
-            // 
-            this.pbmine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbmine.BackgroundImage")));
-            this.pbmine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbmine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbmine.Location = new System.Drawing.Point(671, 260);
-            this.pbmine.Name = "pbmine";
-            this.pbmine.Size = new System.Drawing.Size(230, 150);
-            this.pbmine.TabIndex = 12;
-            this.pbmine.TabStop = false;
-            // 
-            // pbeafc
-            // 
-            this.pbeafc.BackgroundImage = global::testvc.Properties.Resources.maxresdefault;
-            this.pbeafc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbeafc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbeafc.Location = new System.Drawing.Point(364, 260);
-            this.pbeafc.Name = "pbeafc";
-            this.pbeafc.Size = new System.Drawing.Size(230, 150);
-            this.pbeafc.TabIndex = 7;
-            this.pbeafc.TabStop = false;
-            // 
-            // pbgtav
-            // 
-            this.pbgtav.BackgroundImage = global::testvc.Properties.Resources.gtavi;
-            this.pbgtav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbgtav.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbgtav.InitialImage = null;
-            this.pbgtav.Location = new System.Drawing.Point(55, 260);
-            this.pbgtav.Name = "pbgtav";
-            this.pbgtav.Size = new System.Drawing.Size(230, 150);
-            this.pbgtav.TabIndex = 5;
-            this.pbgtav.TabStop = false;
-            // 
-            // txtpesquisa
-            // 
-            this.txtpesquisa.Location = new System.Drawing.Point(129, 133);
-            this.txtpesquisa.Name = "txtpesquisa";
-            this.txtpesquisa.Size = new System.Drawing.Size(709, 35);
-            this.txtpesquisa.TabIndex = 17;
-            this.txtpesquisa.TextChanged += new System.EventHandler(this.Txtpesquisa_TextChanged);
-            // 
-            // lblgta
-            // 
-            this.lblgta.AutoSize = true;
-            this.lblgta.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgta.ForeColor = System.Drawing.Color.White;
-            this.lblgta.Location = new System.Drawing.Point(49, 418);
-            this.lblgta.Name = "lblgta";
-            this.lblgta.Size = new System.Drawing.Size(141, 52);
-            this.lblgta.TabIndex = 18;
-            this.lblgta.Text = "GTA VI\r\nSimulação, Tiro\r\n";
-            // 
-            // lbleafc
-            // 
-            this.lbleafc.AutoSize = true;
-            this.lbleafc.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbleafc.ForeColor = System.Drawing.Color.White;
-            this.lbleafc.Location = new System.Drawing.Point(358, 418);
-            this.lbleafc.Name = "lbleafc";
-            this.lbleafc.Size = new System.Drawing.Size(169, 52);
-            this.lbleafc.TabIndex = 21;
-            this.lbleafc.Text = "EA FC 26\r\nEsporte, Simulação\r\n";
-            // 
-            // bteafc
-            // 
-            this.bteafc.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bteafc.Location = new System.Drawing.Point(418, 480);
-            this.bteafc.Name = "bteafc";
-            this.bteafc.Size = new System.Drawing.Size(122, 46);
-            this.bteafc.TabIndex = 20;
-            this.bteafc.Text = "Comprar";
-            this.bteafc.UseVisualStyleBackColor = true;
-            this.bteafc.Click += new System.EventHandler(this.Bteafc_Click);
-            // 
-            // lblmine
-            // 
-            this.lblmine.AutoSize = true;
-            this.lblmine.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmine.ForeColor = System.Drawing.Color.White;
-            this.lblmine.Location = new System.Drawing.Point(665, 418);
-            this.lblmine.Name = "lblmine";
-            this.lblmine.Size = new System.Drawing.Size(191, 52);
-            this.lblmine.TabIndex = 24;
-            this.lblmine.Text = "MINECRAFT\r\nAventura, Exploração";
-            // 
-            // btmine
-            // 
-            this.btmine.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmine.Location = new System.Drawing.Point(725, 480);
-            this.btmine.Name = "btmine";
-            this.btmine.Size = new System.Drawing.Size(122, 46);
-            this.btmine.TabIndex = 23;
-            this.btmine.Text = "Comprar";
-            this.btmine.UseVisualStyleBackColor = true;
-            this.btmine.Click += new System.EventHandler(this.Btmine_Click);
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(981, 27);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(16, 595);
-            this.vScrollBar1.TabIndex = 26;
-            // 
-            // btgta
-            // 
-            this.btgta.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btgta.Location = new System.Drawing.Point(109, 480);
-            this.btgta.Name = "btgta";
-            this.btgta.Size = new System.Drawing.Size(122, 46);
-            this.btgta.TabIndex = 9;
-            this.btgta.Text = "Comprar";
-            this.btgta.UseVisualStyleBackColor = true;
-            this.btgta.Click += new System.EventHandler(this.Btgta_Click);
-            // 
-            // buttonNewUser
-            // 
-            this.buttonNewUser.BackColor = System.Drawing.Color.ForestGreen;
-            this.buttonNewUser.Font = new System.Drawing.Font("Palatino Linotype", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewUser.ForeColor = System.Drawing.Color.White;
-            this.buttonNewUser.Location = new System.Drawing.Point(820, 645);
-            this.buttonNewUser.Name = "buttonNewUser";
-            this.buttonNewUser.Size = new System.Drawing.Size(150, 45);
-            this.buttonNewUser.TabIndex = 27;
-            this.buttonNewUser.Text = "Meu Perfil";
-            this.buttonNewUser.UseVisualStyleBackColor = false;
-            this.buttonNewUser.Click += new System.EventHandler(this.ButtonNewUser_Click);
             // 
             // Form1
             // 
@@ -296,37 +274,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1006, 695);
-            this.Controls.Add(this.buttonNewUser);
-            this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.lblmine);
-            this.Controls.Add(this.btmine);
-            this.Controls.Add(this.lbleafc);
-            this.Controls.Add(this.bteafc);
-            this.Controls.Add(this.lblgta);
-            this.Controls.Add(this.txtpesquisa);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.pbmine);
-            this.Controls.Add(this.btgta);
-            this.Controls.Add(this.pbeafc);
+            this.Controls.Add(this.footerPanel);
+            this.Controls.Add(this.panelJogos);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pbgtav);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.filterPanel);
+            this.Controls.Add(this.searchPanel);
+            this.Controls.Add(this.buttonAdicionarJogo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "Form1";
-            this.Text = "\'";
+            this.Text = "Jogos";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.searchPanel.ResumeLayout(false);
+            this.searchPanel.PerformLayout();
+            this.filterPanel.ResumeLayout(false);
+            this.footerPanel.ResumeLayout(false);
+            this.footerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbmine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbeafc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbgtav)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,27 +301,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonAdicionarJogo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pbeafc;
-        private System.Windows.Forms.PictureBox pbgtav;
-        private System.Windows.Forms.PictureBox pbmine;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.FlowLayoutPanel filterPanel;
+        private System.Windows.Forms.Button buttonFiltroTodos;
+        private System.Windows.Forms.Button buttonFiltroMedia;
+        private System.Windows.Forms.Button buttonFiltroMediana;
+        private System.Windows.Forms.Button buttonFiltroModa;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtpesquisa;
+        private System.Windows.Forms.FlowLayoutPanel panelJogos;
+        private System.Windows.Forms.Panel footerPanel;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtpesquisa;
-        private System.Windows.Forms.Label lblgta;
-        private System.Windows.Forms.Label lbleafc;
-        private System.Windows.Forms.Button bteafc;
-        private System.Windows.Forms.Label lblmine;
-        private System.Windows.Forms.Button btmine;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.Button btgta;
         private System.Windows.Forms.Button buttonNewUser;
     }
 }
-

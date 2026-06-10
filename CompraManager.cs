@@ -57,5 +57,19 @@ END";
 
             return DatabaseHelper.ExecuteNonQuery(query, parameters) > 0;
         }
+
+        public static bool RemoverCompra(int idUsuario, string nomeJogo)
+        {
+            GarantirTabelaCompras();
+
+            string query = "DELETE FROM Compra WHERE id_usuario = @idUsuario AND nome_jogo = @nomeJogo";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@idUsuario", idUsuario),
+                new SqlParameter("@nomeJogo", nomeJogo)
+            };
+
+            return DatabaseHelper.ExecuteNonQuery(query, parameters) > 0;
+        }
     }
 }

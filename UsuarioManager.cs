@@ -22,6 +22,50 @@ namespace testvc
             public string Telefone { get; set; }
             public string CPF { get; set; }
             public DateTime DataCriacao { get; set; }
+            public bool IsAdmin { get; set; }
+        }
+
+        public static void GarantirContaAdmin()
+        {
+            GarantirColunaAdmin();
+
+            string senhaHash = GerarHashPadrao();
+            string query = @"
+IF NOT EXISTS (SELECT 1 FROM Usuario WHERE email = @email)
+BEGIN
+    INSERT INTO Usuario (nome, email, senha_hash, endereco, bairro, cidade, cep, telefone, cpf, is_admin)
+    VALUES (@nome, @email, @senhaHash, @endereco, @bairro, @cidade, @cep, @telefone, @cpf, 1)
+END
+ELSE
+BEGIN
+    UPDATE Usuario SET is_admin = 1 WHERE email = @email
+END";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@nome", "Admin"),
+                new SqlParameter("@email", "admin@mobgames.com"),
+                new SqlParameter("@senhaHash", senhaHash),
+                new SqlParameter("@endereco", ""),
+                new SqlParameter("@bairro", ""),
+                new SqlParameter("@cidade", ""),
+                new SqlParameter("@cep", ""),
+                new SqlParameter("@telefone", ""),
+                new SqlParameter("@cpf", "000.000.000-00")
+            };
+
+            DatabaseHelper.ExecuteNonQuery(query, parameters);
+        }
+
+        private static void GarantirColunaAdmin()
+        {
+            string query = @"
+IF COL_LENGTH('Usuario', 'is_admin') IS NULL
+BEGIN
+    ALTER TABLE Usuario ADD is_admin BIT NOT NULL CONSTRAINT DF_Usuario_IsAdmin DEFAULT 0
+END";
+
+            DatabaseHelper.ExecuteNonQuery(query);
         }
 
         public static int SalvarUsuario(string nome, string email, string telefone, string endereco, string cpf, string cidade, string cep)
@@ -138,7 +182,8 @@ namespace testvc
                         CEP = row["cep"]?.ToString() ?? "",
                         Telefone = row["telefone"]?.ToString() ?? "",
                         CPF = row["cpf"]?.ToString() ?? "",
-                        DataCriacao = (DateTime)row["data_criacao"]
+                        DataCriacao = (DateTime)row["data_criacao"],
+                        IsAdmin = row.Table.Columns.Contains("is_admin") && Convert.ToBoolean(row["is_admin"])
                     };
                 }
 
@@ -172,7 +217,8 @@ namespace testvc
                         CEP = row["cep"]?.ToString() ?? "",
                         Telefone = row["telefone"]?.ToString() ?? "",
                         CPF = row["cpf"]?.ToString() ?? "",
-                        DataCriacao = (DateTime)row["data_criacao"]
+                        DataCriacao = (DateTime)row["data_criacao"],
+                        IsAdmin = row.Table.Columns.Contains("is_admin") && Convert.ToBoolean(row["is_admin"])
                     });
                 }
 

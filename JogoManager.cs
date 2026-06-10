@@ -1,9 +1,19 @@
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace testvc
 {
     public static class JogoManager
     {
+        public class Jogo
+        {
+            public int Id { get; set; }
+            public string Nome { get; set; }
+            public string Categoria { get; set; }
+            public decimal Preco { get; set; }
+        }
+
         public static void GarantirJogosCadastrados()
         {
             GarantirTabelaJogos();
@@ -18,6 +28,122 @@ namespace testvc
             InserirJogoSeNaoExistir("CYBERPUNK 2077", "RPG, Mundo Aberto", 199.90m);
             InserirJogoSeNaoExistir("GOD OF WAR", "Acao, Aventura", 199.90m);
             InserirJogoSeNaoExistir("ELDEN RING", "RPG, Acao", 279.90m);
+        }
+
+        public static List<Jogo> ListarJogosAtivos()
+        {
+            GarantirTabelaJogos();
+
+            string query = @"
+SELECT id_jogo, nome, categoria, preco
+FROM Jogo
+WHERE ativo = 1
+ORDER BY nome";
+
+            DataTable tabela = DatabaseHelper.ExecuteQuery(query);
+            List<Jogo> jogos = new List<Jogo>();
+
+            foreach (DataRow linha in tabela.Rows)
+            {
+                jogos.Add(new Jogo
+                {
+                    Id = (int)linha["id_jogo"],
+                    Nome = linha["nome"].ToString(),
+                    Categoria = linha["categoria"].ToString(),
+                    Preco = (decimal)linha["preco"]
+                });
+            }
+
+            return jogos;
+        }
+
+        public static bool InserirJogo(string nome, string categoria, decimal preco)
+        {
+            string query = @"
+INSERT INTO Jogo (nome, categoria, preco, ativo)
+VALUES (@nome, @categoria, @preco, 1)";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@nome", nome),
+                new SqlParameter("@categoria", categoria),
+                new SqlParameter("@preco", preco)
+            };
+
+            return DatabaseHelper.ExecuteNonQuery(query, parameters) > 0;
+        }
+
+        public static bool AtualizarJogo(int idJogo, string nome, string categoria, decimal preco)
+        {
+            string nomeAntigo = ObterNomeJogo(idJogo);
+
+            string query = @"
+UPDATE Jogo
+SET nome = @nome, categoria = @categoria, preco = @preco
+WHERE id_jogo = @idJogo";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@idJogo", idJogo),
+                new SqlParameter("@nome", nome),
+                new SqlParameter("@categoria", categoria),
+                new SqlParameter("@preco", preco)
+            };
+
+            bool atualizado = DatabaseHelper.ExecuteNonQuery(query, parameters) > 0;
+
+            if (atualizado && !string.IsNullOrEmpty(nomeAntigo) && nomeAntigo != nome)
+            {
+                AtualizarNomeJogoCompras(nomeAntigo, nome);
+            }
+
+            return atualizado;
+        }
+
+        public static bool ExcluirJogo(int idJogo, string nomeJogo)
+        {
+            CompraManager.GarantirTabelaCompras();
+
+            string queryDeleteCompras = "DELETE FROM Compra WHERE nome_jogo = @nomeJogo";
+            SqlParameter[] compraParameters = new SqlParameter[]
+            {
+                new SqlParameter("@nomeJogo", nomeJogo)
+            };
+            DatabaseHelper.ExecuteNonQuery(queryDeleteCompras, compraParameters);
+
+            string queryDeleteJogo = "DELETE FROM Jogo WHERE id_jogo = @idJogo";
+            SqlParameter[] jogoParameters = new SqlParameter[]
+            {
+                new SqlParameter("@idJogo", idJogo)
+            };
+
+            return DatabaseHelper.ExecuteNonQuery(queryDeleteJogo, jogoParameters) > 0;
+        }
+
+        private static string ObterNomeJogo(int idJogo)
+        {
+            string query = "SELECT nome FROM Jogo WHERE id_jogo = @idJogo";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@idJogo", idJogo)
+            };
+
+            object result = DatabaseHelper.ExecuteScalar(query, parameters);
+            return result == null ? "" : result.ToString();
+        }
+
+        private static void AtualizarNomeJogoCompras(string nomeAntigo, string nomeNovo)
+        {
+            CompraManager.GarantirTabelaCompras();
+
+            string query = "UPDATE Compra SET nome_jogo = @nomeNovo WHERE nome_jogo = @nomeAntigo";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@nomeNovo", nomeNovo),
+                new SqlParameter("@nomeAntigo", nomeAntigo)
+            };
+
+            DatabaseHelper.ExecuteNonQuery(query, parameters);
         }
 
         private static void GarantirTabelaJogos()

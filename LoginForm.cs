@@ -22,6 +22,7 @@ namespace testvc
         private void LoginForm_Load(object sender, EventArgs e)
         {
             // Carregar lista de usuários do banco de dados
+            UsuarioManager.GarantirContaAdmin();
             CarregarUsuarios();
         }
 
@@ -45,10 +46,11 @@ namespace testvc
                 dt.Columns.Add("Email", typeof(string));
                 dt.Columns.Add("Telefone", typeof(string));
                 dt.Columns.Add("CPF", typeof(string));
+                dt.Columns.Add("Admin", typeof(string));
 
                 foreach (var usuario in usuariosList)
                 {
-                    dt.Rows.Add(usuario.Id, usuario.Nome, usuario.Email, usuario.Telefone, usuario.CPF);
+                    dt.Rows.Add(usuario.Id, usuario.Nome, usuario.Email, usuario.Telefone, usuario.CPF, usuario.IsAdmin ? "Sim" : "Nao");
                 }
 
                 // Configurar DataGridView
@@ -60,6 +62,7 @@ namespace testvc
                 dataGridViewUsers.Columns["Email"].Width = 180;
                 dataGridViewUsers.Columns["Telefone"].Width = 120;
                 dataGridViewUsers.Columns["CPF"].Width = 120;
+                dataGridViewUsers.Columns["Admin"].Width = 70;
 
                 // Selecionar primeira linha por padrão
                 if (dataGridViewUsers.Rows.Count > 0)
@@ -96,6 +99,7 @@ namespace testvc
                     SessionContext.CurrentUserId = usuario.Id;
                     SessionContext.CurrentUserName = usuario.Nome;
                     SessionContext.CurrentUserImagePath = ""; // Ajustar conforme necessário
+                    SessionContext.CurrentUserIsAdmin = usuario.IsAdmin;
 
                     MessageBox.Show($"Bem-vindo, {usuario.Nome}!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

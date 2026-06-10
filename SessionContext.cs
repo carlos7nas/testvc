@@ -10,5 +10,6 @@ namespace testvc
         public static int CurrentUserId { get; set; } = 0;
         public static string CurrentUserName { get; set; } = string.Empty;
         public static string CurrentUserImagePath { get; set; } = string.Empty;
+        public static bool CurrentUserIsAdmin { get; set; } = false;
     }
 }
